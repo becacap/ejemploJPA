@@ -41,7 +41,6 @@ public class TestUsuario
 	}
 
 //@Test
-	// @Transactional
 	public void grabar()
 	{
 

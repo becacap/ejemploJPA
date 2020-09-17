@@ -44,17 +44,28 @@ public class Configuracion
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory()
 	{
-
+		//Construimos el objeto
 		LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
+		//Le decimos que dataSource debe utilizar
 		localContainerEntityManagerFactoryBean.setDataSource(getDataSource());
+		//Donde esta el paquete donde vamos a guardar las entidades
 		localContainerEntityManagerFactoryBean.setPackagesToScan("cap.curso.jpa.entidades");
 
+
+		//Se encarga de manejar caracteristicas concretas de la base de datos
 		HibernateJpaVendorAdapter hibernateJpa = new HibernateJpaVendorAdapter();
+		//En este caso maneja el dialecto de la base de datos
 		hibernateJpa.setDatabasePlatform(getEnvironment().getProperty("dialect"));
+		//Le decimos cual es su vendorAdapter
 		localContainerEntityManagerFactoryBean.setJpaVendorAdapter(hibernateJpa);
 
+		//Ciertas carecteristicas de la aplicación
+		
 		Properties jpaProperties = new Properties();
-		jpaProperties.put("show_sql", getEnvironment().getProperty("show_sql"));
+		//Le damos dos el show y el format. Hay que crearlas en aplication porque las lee de ahí
+		//Show_sql a True le digo que escriba en la consola del servidor la sentencia que el a hecho
+		//format_sql que la información que nos ha dado con el show_sql nos la de formateada (bonita)
+		//Hay que ponerlos a false cuando vayamos a producción.jpaProperties.put("show_sql", getEnvironment().getProperty("show_sql"));
 		jpaProperties.put("format_sql", getEnvironment().getProperty("format_sql"));
 		jpaProperties.put("hibernate.id.new_generator_mappings", getEnvironment().getProperty("hibernate.id.new_generator_mappings"));
 
@@ -66,8 +77,9 @@ public class Configuracion
 	@Bean
 	public JpaTransactionManager transactionManager()
 	{
+		
 		JpaTransactionManager txnMgr = new JpaTransactionManager();
-		txnMgr.setEntityManagerFactory(entityManagerFactory().getObject());
+		//Cual es el entityManagerFactory que queremos utilizar para vigilar la transaccióntxnMgr.setEntityManagerFactory(entityManagerFactory().getObject());
 		return txnMgr;
 	}
 

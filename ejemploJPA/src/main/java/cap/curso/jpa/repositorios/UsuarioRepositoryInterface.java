@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import cap.curso.jpa.entidades.Usuario;
 
-@Repository
-public interface UsuarioRepositoryInterface extends CrudRepository<Usuario, Integer>
+@Repository//La añadimos esto para que se inyecte
+public interface UsuarioRepositoryInterface extends CrudRepository<Usuario, Integer> //Hereda de CrudRepository y los va a lanzar contra Usuario
 { 
 	
 	@Query("from Usuario as u order by u.clave")

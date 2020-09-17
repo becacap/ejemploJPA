@@ -10,6 +10,7 @@ import cap.curso.jpa.repositorios.UsuarioRepositoryInterface;
 @Service
 public class JPAService implements JPAServiceInterface
 {
+	//Inyectamos el repositorio
 	@Autowired
 	private UsuarioRepositoryInterface usuarioRepository;
 
