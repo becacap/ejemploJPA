@@ -22,6 +22,10 @@ public class JPAService implements JPAServiceInterface
 	{
 		return getUsuarioRepository().findAll();
 	}
+	
+	public Iterable<Usuario> ordenarClave(){
+		return getUsuarioRepository().ordenarClave();
+	}
 
 	public UsuarioRepositoryInterface getUsuarioRepository()
 	{

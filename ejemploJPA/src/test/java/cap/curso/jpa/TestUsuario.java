@@ -21,10 +21,19 @@ public class TestUsuario
 	@Autowired
 	private JPAServiceInterface jPAServiceInterface;
 
-	 @Test
+	 //@Test
 	public void testTodos()
 	{
 		List<Usuario> usuarios = (List<Usuario>) getjPAServiceInterface().findAll();
+		for (Usuario usuario : usuarios)
+		{
+			System.out.println(usuario.getUsuario() + " - " + usuario.getClave());
+		}
+	}
+	
+	@Test
+	public void testOrdenados() {
+		List<Usuario> usuarios = (List<Usuario>) getjPAServiceInterface().ordenarClave();
 		for (Usuario usuario : usuarios)
 		{
 			System.out.println(usuario.getUsuario() + " - " + usuario.getClave());

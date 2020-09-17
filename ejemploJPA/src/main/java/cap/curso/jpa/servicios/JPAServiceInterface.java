@@ -12,5 +12,7 @@ public interface JPAServiceInterface
 	public Usuario save(Usuario usuario);
 	
 	public Iterable<Usuario> findAll();
+	
+	public Iterable<Usuario> ordenarClave();
 
 }
