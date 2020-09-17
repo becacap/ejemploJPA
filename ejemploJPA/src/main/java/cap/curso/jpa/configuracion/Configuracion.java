@@ -31,8 +31,8 @@ public class Configuracion
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName(getEnvironment().getProperty("driver"));
 		dataSource.setUrl(getEnvironment().getProperty("url"));
-		dataSource.setUsername(getEnvironment().getProperty("username"));
-		dataSource.setPassword(getEnvironment().getProperty("password"));
+		dataSource.setUsername(getEnvironment().getProperty("usuario"));
+		dataSource.setPassword(getEnvironment().getProperty("clave"));
 
 		return dataSource;
 	}
