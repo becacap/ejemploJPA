@@ -8,30 +8,24 @@ import cap.curso.jpa.entidades.Usuario;
 import cap.curso.jpa.repositorios.UsuarioRepositoryInterface;
 
 @Service
-public class JPAService implements JPAServiceInterface
-{
-	@Autowired
-	private UsuarioRepositoryInterface usuarioRepository;
+public class JPAService implements JPAServiceInterface {
+    @Autowired
+    private UsuarioRepositoryInterface usuarioRepository;
 
-	public Usuario save(Usuario usuario)
-	{
-		return getUsuarioRepository().save(usuario);
-	}
+    public Usuario save(Usuario usuario) {
+	return getUsuarioRepository().save(usuario);
+    }
 
-	public Iterable<Usuario> findAll()
-	{
-		return getUsuarioRepository().findAll();
-	}
+    public Iterable<Usuario> findAll() {
+	return getUsuarioRepository().findAll();
+    }
 
-	public UsuarioRepositoryInterface getUsuarioRepository()
-	{
-		return usuarioRepository;
-	}
+    public UsuarioRepositoryInterface getUsuarioRepository() {
+	return usuarioRepository;
+    }
 
-	public void setUsuarioRepository(UsuarioRepositoryInterface usuarioRepository)
-	{
-		this.usuarioRepository = usuarioRepository;
-	}
+    public void setUsuarioRepository(UsuarioRepositoryInterface usuarioRepository) {
+	this.usuarioRepository = usuarioRepository;
+    }
 
-	
 }
