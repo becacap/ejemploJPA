@@ -34,6 +34,6 @@ public class Jornada
 	private String descripcion;
 	
 	@Column
-	private String especial;
+	private int especial;
 
 }
