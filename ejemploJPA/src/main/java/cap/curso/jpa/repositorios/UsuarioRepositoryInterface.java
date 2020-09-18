@@ -9,6 +9,6 @@ import cap.curso.jpa.entidades.Usuario;
 @Repository
 public interface UsuarioRepositoryInterface extends CrudRepository<Usuario, Integer>
 {
-	@Query(" from Usuario u order by u.clave")
+	@Query(value = " from Usuario u order by u.clave", nativeQuery = false)
 	public Iterable<Usuario> ordenarClave();
 }
