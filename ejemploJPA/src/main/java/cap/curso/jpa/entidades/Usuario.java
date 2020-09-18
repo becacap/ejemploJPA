@@ -5,10 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NamedQuery;
 
 @Entity
 @Table(name="usuarios")
+
 public class Usuario
 {
 	
@@ -23,7 +28,37 @@ public class Usuario
 	@Column
 	private String clave;
 	
+	@Column
+	private boolean enabled;
 	
+	@ManyToOne
+	@JoinColumn(name="roles_id")
+	private Rol rol;
+	
+
+	public Rol getRol()
+	{
+		return rol;
+	}
+
+
+	public void setRol(Rol rol)
+	{
+		this.rol = rol;
+	}
+
+
+	public boolean isEnabled()
+	{
+		return enabled;
+	}
+
+
+	public void setEnabled(boolean enabled)
+	{
+		this.enabled = enabled;
+	}
+
 
 	public int getId()
 	{

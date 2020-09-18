@@ -51,6 +51,7 @@ public class Configuracion
 
 		HibernateJpaVendorAdapter hibernateJpa = new HibernateJpaVendorAdapter();
 		hibernateJpa.setDatabasePlatform(getEnvironment().getProperty("dialect"));
+		hibernateJpa.setShowSql(Boolean.getBoolean(getEnvironment().getProperty("show_sql")));
 		localContainerEntityManagerFactoryBean.setJpaVendorAdapter(hibernateJpa);
 
 		Properties jpaProperties = new Properties();
