@@ -5,62 +5,70 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="usuarios")
-public class Usuario
-{
-	
+@Table(name = "usuarios")
+public class Usuario {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	
-	@Column
-	private String usuario;
-	
-	@Column
-	private String clave;
-	
-	
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
-	public int getId()
-	{
-		return id;
-	}
+    @Column
+    private String usuario;
 
+    @Column
+    private String clave;
 
-	public void setId(int id)
-	{
-		this.id = id;
-	}
+    @Column
+    private Boolean enabled;
+    
+    @ManyToOne
+    @JoinColumn(name = "roles_id", referencedColumnName = "id")
+    private Rol rol;
 
+    public Boolean getEnabled() {
+        return enabled;
+    }
 
-	public String getUsuario()
-	{
-		return usuario;
-	}
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 
+    public Rol getRol() {
+        return rol;
+    }
 
-	public void setUsuario(String usuario)
-	{
-		this.usuario = usuario;
-	}
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
 
+    public int getId() {
+	return id;
+    }
 
-	public String getClave()
-	{
-		return clave;
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
+    public String getUsuario() {
+	return usuario;
+    }
 
-	public void setClave(String clave)
-	{
-		this.clave = clave;
-	}
+    public void setUsuario(String usuario) {
+	this.usuario = usuario;
+    }
 
+    public String getClave() {
+	return clave;
+    }
 
-	
+    public void setClave(String clave) {
+	this.clave = clave;
+    }
 
 }
