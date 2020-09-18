@@ -1,7 +1,6 @@
 package cap.curso.jpa.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import cap.curso.jpa.entidades.Usuario;
@@ -32,6 +31,8 @@ public class JPAService implements JPAServiceInterface
 	{
 		this.usuarioRepository = usuarioRepository;
 	}
+	
+
 
 	
 }
