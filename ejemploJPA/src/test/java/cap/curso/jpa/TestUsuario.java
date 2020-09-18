@@ -11,14 +11,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cap.curso.jpa.configuracion.Configuracion;
 import cap.curso.jpa.entidades.Usuario;
-import cap.curso.jpa.servicios.JPAServiceInterface;
+import cap.curso.jpa.servicios.JPAUsuarioServiceInterface;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = Configuracion.class)
 
 public class TestUsuario {
     @Autowired
-    private JPAServiceInterface jPAServiceInterface;
+    private JPAUsuarioServiceInterface jPAServiceInterface;
 
     @Test
     public void testTodos() {
@@ -39,11 +39,11 @@ public class TestUsuario {
 
     }
 
-    public JPAServiceInterface getjPAServiceInterface() {
+    public JPAUsuarioServiceInterface getjPAServiceInterface() {
 	return jPAServiceInterface;
     }
 
-    public void setjPAServiceInterface(JPAServiceInterface jPAServiceInterface) {
+    public void setjPAServiceInterface(JPAUsuarioServiceInterface jPAServiceInterface) {
 	this.jPAServiceInterface = jPAServiceInterface;
     }
 
