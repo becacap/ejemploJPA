@@ -23,18 +23,24 @@ public class Rol
 	private String rol;
 	
 	@OneToMany(mappedBy ="rol")
-	private List<Usuario> usuario;
+	private List<Usuario> usuarios;
 	
-
+	public void addUsuario(Usuario usuario) {
+		getUsuarios().add(usuario);
+	}
+	
+	public void removeUsuario(Usuario usuario) {
+		getUsuarios().remove(usuario);
+	}
 
 	public List<Usuario> getUsuarios()
 	{
-		return usuario;
+		return usuarios;
 	}
 
-	public void setUsuarios(List<Usuario> usuario)
+	public void setUsuarios(List<Usuario> usuarios)
 	{
-		this.usuario = usuario;
+		this.usuarios = usuarios;
 	}
 
 	public int getId()
