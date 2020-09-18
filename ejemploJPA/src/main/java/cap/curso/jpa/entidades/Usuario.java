@@ -5,14 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="usuarios")
 public class Usuario
 {
-	
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -23,6 +23,12 @@ public class Usuario
 	@Column
 	private String clave;
 	
+	@Column
+	private boolean enable;
+	
+	@ManyToOne
+	@JoinColumn(name="roles_id")
+	private Rol rol;
 	
 
 	public int getId()
@@ -58,6 +64,30 @@ public class Usuario
 	public void setClave(String clave)
 	{
 		this.clave = clave;
+	}
+
+
+	public boolean isEnable()
+	{
+		return enable;
+	}
+
+
+	public void setEnable(boolean enable)
+	{
+		this.enable = enable;
+	}
+
+
+	public Rol getRol()
+	{
+		return rol;
+	}
+
+
+	public void setRol(Rol rol)
+	{
+		this.rol = rol;
 	}
 
 
