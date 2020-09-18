@@ -1,7 +1,5 @@
 package cap.curso.jpa;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import org.junit.Test;
@@ -12,7 +10,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import cap.curso.jpa.configuracion.Configuracion;
 import cap.curso.jpa.entidades.Usuario;
-import cap.curso.jpa.servicios.JPAService;
 import cap.curso.jpa.servicios.JPAServiceInterface;
 
 @RunWith(SpringJUnit4ClassRunner.class)

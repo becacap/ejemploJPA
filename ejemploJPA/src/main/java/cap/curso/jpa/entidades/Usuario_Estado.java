@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name="usuarios_estados")
 public class Usuario_Estado
 {
-
+ 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
