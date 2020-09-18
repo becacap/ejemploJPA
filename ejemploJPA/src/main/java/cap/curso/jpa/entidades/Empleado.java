@@ -3,13 +3,17 @@ package cap.curso.jpa.entidades;
 
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -46,6 +50,21 @@ public class Empleado
 	@OneToOne
 	@JoinColumn(name="usuarios_id")
 	private Usuario usuario;
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "empleado_jornadas", joinColumns = @JoinColumn(name = "empledos_id"), inverseJoinColumns = @JoinColumn(name = "jornadas_id"))
+	private List<Jornada> jornadas;
+	
+
+	public List<Jornada> getJornadas()
+	{
+		return jornadas;
+	}
+
+	public void setJornadas(List<Jornada> jornadas)
+	{
+		this.jornadas = jornadas;
+	}
 
 	public int getId()
 	{

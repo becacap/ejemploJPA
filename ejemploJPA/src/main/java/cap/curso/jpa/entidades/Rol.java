@@ -1,10 +1,14 @@
 package cap.curso.jpa.entidades;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +21,21 @@ public class Rol
 	
 	@Column
 	private String rol;
+	
+	@OneToMany(mappedBy ="rol")
+	private List<Usuario> usuario;
+	
+
+
+	public List<Usuario> getUsuarios()
+	{
+		return usuario;
+	}
+
+	public void setUsuarios(List<Usuario> usuario)
+	{
+		this.usuario = usuario;
+	}
 
 	public int getId()
 	{
