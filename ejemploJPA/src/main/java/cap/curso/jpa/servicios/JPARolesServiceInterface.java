@@ -9,4 +9,8 @@ public interface JPARolesServiceInterface {
 
     public Rol save(Rol rol);
 
+    public Iterable<Rol> findAll();
+
+    public Rol getRolByName(String nombreRol);
+
 }

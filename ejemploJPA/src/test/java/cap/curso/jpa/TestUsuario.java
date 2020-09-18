@@ -15,7 +15,6 @@ import cap.curso.jpa.servicios.JPAUsuarioServiceInterface;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = Configuracion.class)
-
 public class TestUsuario {
     @Autowired
     private JPAUsuarioServiceInterface jPAServiceInterface;
@@ -28,7 +27,7 @@ public class TestUsuario {
 	}
     }
 
-    //@Test
+    // @Test
     // @Transactional
     public void grabar() {
 
