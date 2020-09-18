@@ -1,5 +1,7 @@
 package cap.curso.jpa.entidades;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,7 +42,7 @@ public class Acceso
 	private int tipo;
 	
 	@Column
-	private String fecha;
+	private Date fecha;
 	
 	@Column
 	private int horaReal;

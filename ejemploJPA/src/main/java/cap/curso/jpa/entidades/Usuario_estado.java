@@ -32,4 +32,54 @@ public class Usuario_estado
 	@ManyToOne
 	@JoinColumn(name= "JORNADAS_ID")
 	private Jornada jornada;
+
+	public Integer getId()
+	{
+		return id;
+	}
+
+	public void setId(Integer id)
+	{
+		this.id = id;
+	}
+
+	public Empleado getEmpleado()
+	{
+		return empleado;
+	}
+
+	public void setEmpleado(Empleado empleado)
+	{
+		this.empleado = empleado;
+	}
+
+	public Estado getEstado()
+	{
+		return estado;
+	}
+
+	public void setEstado(Estado estado)
+	{
+		this.estado = estado;
+	}
+
+	public Calendario getCalendario()
+	{
+		return calendario;
+	}
+
+	public void setCalendario(Calendario calendario)
+	{
+		this.calendario = calendario;
+	}
+
+	public Jornada getJornada()
+	{
+		return jornada;
+	}
+
+	public void setJornada(Jornada jornada)
+	{
+		this.jornada = jornada;
+	}
 }

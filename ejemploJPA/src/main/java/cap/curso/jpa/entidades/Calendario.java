@@ -1,5 +1,7 @@
 package cap.curso.jpa.entidades;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,9 +20,39 @@ public class Calendario
 	private Integer id;
 	
 	@Column
-	private String fecha;
+	private Date fecha;
 	
 	@ManyToOne
 	@JoinColumn(name= "estados_id")
 	private Estado estado;
+
+	public Integer getId()
+	{
+		return id;
+	}
+
+	public void setId(Integer id)
+	{
+		this.id = id;
+	}
+
+	public Date getFecha()
+	{
+		return fecha;
+	}
+
+	public void setFecha(Date fecha)
+	{
+		this.fecha = fecha;
+	}
+
+	public Estado getEstado()
+	{
+		return estado;
+	}
+
+	public void setEstado(Estado estado)
+	{
+		this.estado = estado;
+	}
 }
