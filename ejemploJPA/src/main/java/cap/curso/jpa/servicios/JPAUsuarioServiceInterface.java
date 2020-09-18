@@ -6,11 +6,13 @@ import cap.curso.jpa.entidades.Usuario;
 import cap.curso.jpa.repositorios.UsuarioRepositoryInterface;
 
 @Service
-public interface JPAServiceInterface
+public interface JPAUsuarioServiceInterface
 {
 	
 	public Usuario save(Usuario usuario);
 	
 	public Iterable<Usuario> findAll();
+	
+	public Iterable<Usuario>ordenarClave();
 
 }

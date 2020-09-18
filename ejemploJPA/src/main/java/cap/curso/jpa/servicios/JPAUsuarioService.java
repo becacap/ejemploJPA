@@ -8,7 +8,7 @@ import cap.curso.jpa.entidades.Usuario;
 import cap.curso.jpa.repositorios.UsuarioRepositoryInterface;
 
 @Service
-public class JPAService implements JPAServiceInterface
+public class JPAUsuarioService implements JPAUsuarioServiceInterface
 {
 	@Autowired
 	private UsuarioRepositoryInterface usuarioRepository;
@@ -23,6 +23,10 @@ public class JPAService implements JPAServiceInterface
 		return getUsuarioRepository().findAll();
 	}
 
+	public Iterable<Usuario> ordenarClave(){
+		return getUsuarioRepository().ordenarClave();
+	}
+	
 	public UsuarioRepositoryInterface getUsuarioRepository()
 	{
 		return usuarioRepository;
