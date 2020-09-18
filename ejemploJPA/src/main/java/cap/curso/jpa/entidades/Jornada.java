@@ -1,59 +1,54 @@
 package cap.curso.jpa.entidades;
 
-import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "empleados")
-public class Empleado {
+@Table (name = "jornadas")
+public class Jornada {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.AUTO)
 	private Integer id;
 	
 	@Column
-	private String nombre;
+	private String lunes;
 	
 	@Column
-	private String apellidos;
+	private String martes;
 	
 	@Column
-	private String dni;
+	private String miercoles;
 	
 	@Column
-	private String identificador;
+	private String jueves;
 	
 	@Column
-	private Date fecha_alta;
+	private String viernes;
 	
 	@Column
-	private Date fecha_baja;
-
+	private String sabado;
+	
 	@Column
-	private String clave;
+	private String doming;
 	
-	@OneToOne
-	@JoinColumn (name = "usuarios_id")
-	private Usuario usuario;
+	@Column
+	private int especial;
 	
-	@ManyToMany (fetch = FetchType.LAZY)
+	@ManyToMany
 	@JoinTable (
 			name 			   = "empleado_jornadas",
-			joinColumns 	   = @JoinColumn (name = "empleados_id"),
-			inverseJoinColumns = @JoinColumn (name = "jornadas_id")
+			joinColumns 	   = @JoinColumn (name = "jornadas_id"),
+			inverseJoinColumns = @JoinColumn (name = "empleados_id")
 	)
-	private List<Jornada> jornadas;
-	
+	private List<Empleado> empleados;
 }
