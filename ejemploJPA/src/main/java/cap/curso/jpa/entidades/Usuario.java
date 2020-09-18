@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,7 +25,35 @@ public class Usuario
 	@Column
 	private String clave;
 	
+	@Column
+	private boolean enable;
 	
+	@ManyToOne
+	@JoinColumn(name = "roles_id")
+	private Rol rol;
+	
+	public Rol getRol()
+	{
+		return rol;
+	}
+
+
+	public void setRol(Rol rol)
+	{
+		this.rol = rol;
+	}
+
+	public boolean isEnable()
+	{
+		return enable;
+	}
+
+
+	public void setEnable(boolean enable)
+	{
+		this.enable = enable;
+	}
+
 
 	public int getId()
 	{
@@ -59,6 +89,10 @@ public class Usuario
 	{
 		this.clave = clave;
 	}
+
+
+	
+
 
 
 	
