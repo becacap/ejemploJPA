@@ -1,7 +1,5 @@
 package cap.curso.jpa;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import org.junit.Test;
@@ -13,9 +11,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import cap.curso.jpa.configuracion.Configuracion;
 import cap.curso.jpa.entidades.Rol;
 import cap.curso.jpa.entidades.Usuario;
+<<<<<<< HEAD
 import cap.curso.jpa.servicios.JPARolServiceInterface;
 import cap.curso.jpa.servicios.JPAUsuarioService;
 import cap.curso.jpa.servicios.JPAUsuarioServiceInterface;
+=======
+import cap.curso.jpa.servicios.JPAServiceInterface;
+>>>>>>> branch 'feature-sdo' of https://github.com/becacap/ejemploJPA.git
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = Configuracion.class)
