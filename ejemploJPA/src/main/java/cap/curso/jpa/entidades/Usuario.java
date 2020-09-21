@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity	//Entidad de persistencia completa
@@ -23,7 +25,36 @@ public class Usuario
 	@Column//Le puedo indicar el tamaño que tiene en la base de datos con @Column(length = 45)
 	private String clave;
 	
+	@Column
+	private boolean enabled;
 	
+	@ManyToOne //Le decimos que tiene una relación ManyToOne.
+	@JoinColumn(name="roles_id") //Le digo cual es el campo en el que existe la relación
+	private Rol rol; //Creamos esto porque la tabla Usuarios depende de Roles
+	
+	public Rol getRol()
+	{
+		return rol;
+	}
+
+
+	public void setRol(Rol rol)
+	{
+		this.rol = rol;
+	}
+
+
+	public boolean isEnabled()
+	{
+		return enabled;
+	}
+
+
+	public void setEnabled(boolean enabled)
+	{
+		this.enabled = enabled;
+	}
+
 
 	public int getId()
 	{

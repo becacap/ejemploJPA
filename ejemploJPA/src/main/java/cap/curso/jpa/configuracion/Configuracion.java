@@ -26,8 +26,6 @@ public class Configuracion
 	private Environment environment;
 	
 	
-	
-	
 
 	@Bean
 	public DataSource getDataSource()

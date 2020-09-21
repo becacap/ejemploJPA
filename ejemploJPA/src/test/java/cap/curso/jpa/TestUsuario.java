@@ -10,8 +10,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import cap.curso.jpa.configuracion.Configuracion;
+import cap.curso.jpa.entidades.Rol;
 import cap.curso.jpa.entidades.Usuario;
-import cap.curso.jpa.servicios.JPAServiceInterface;
+import cap.curso.jpa.servicios.JPARolesServiceInterface;
+import cap.curso.jpa.servicios.JPAUsuarioServiceInterface;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = Configuracion.class)
@@ -19,9 +21,22 @@ import cap.curso.jpa.servicios.JPAServiceInterface;
 public class TestUsuario
 {
 	@Autowired
-	private JPAServiceInterface jPAServiceInterface;
+	private JPAUsuarioServiceInterface jPAServiceInterface;
 
-	 //@Test
+	@Autowired
+	private JPARolesServiceInterface jpaRolesInterface;
+	
+	 public JPARolesServiceInterface getJpaRolesInterface()
+	{
+		return jpaRolesInterface;
+	}
+
+	public void setJpaRolesInterface(JPARolesServiceInterface jpaRolesInterface)
+	{
+		this.jpaRolesInterface = jpaRolesInterface;
+	}
+
+	//@Test
 	public void testTodos()
 	{
 		List<Usuario> usuarios = (List<Usuario>) getjPAServiceInterface().findAll();
@@ -41,7 +56,7 @@ public class TestUsuario
 	}
 
 //@Test
-	public void grabar()
+	public void testgrabar()
 	{
 
 		Usuario usuario = new Usuario();
@@ -50,13 +65,23 @@ public class TestUsuario
 		getjPAServiceInterface().save(usuario);
 
 	}
+	
+	//@Test
+	public void testaltaUsuario() {
+		Rol rol = getJpaRolesInterface().gerRolByRol("ADMINISTRADOR");
+		Usuario usuario = new Usuario();
+		usuario.setUsuario("Jorge");
+		usuario.setClave("123456");
+		usuario.setEnabled(true);
+		usuario.setRol(rol);
+	}
 
-	public JPAServiceInterface getjPAServiceInterface()
+	public JPAUsuarioServiceInterface getjPAServiceInterface()
 	{
 		return jPAServiceInterface;
 	}
 
-	public void setjPAServiceInterface(JPAServiceInterface jPAServiceInterface)
+	public void setjPAServiceInterface(JPAUsuarioServiceInterface jPAServiceInterface)
 	{
 		this.jPAServiceInterface = jPAServiceInterface;
 	}
