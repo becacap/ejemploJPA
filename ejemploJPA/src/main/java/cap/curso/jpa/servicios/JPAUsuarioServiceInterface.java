@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import cap.curso.jpa.entidades.Usuario;
 
 @Service
-public interface JPAServiceInterface
+public interface JPAUsuarioServiceInterface
 {
 	public Usuario save(Usuario usuario);
 	

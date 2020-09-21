@@ -1,5 +1,7 @@
 package cap.curso.jpa.entidades;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -38,6 +40,7 @@ public class Jornada
 
 	@Column
 	private int especial;
+	
 
 	@ManyToMany
 	@JoinTable(name = "empleado_jornadas", joinColumns = @JoinColumn(name = "jornadas_id"), inverseJoinColumns = @JoinColumn(name = "empleados_id"))

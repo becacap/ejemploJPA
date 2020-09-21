@@ -8,7 +8,7 @@ import cap.curso.jpa.entidades.Usuario;
 import cap.curso.jpa.repositorios.UsuarioRepositoryInterface;
 
 @Service
-public class JPAService implements JPAServiceInterface
+public class JPAUsuarioService implements JPAUsuarioServiceInterface
 {
 	@Autowired
 	private UsuarioRepositoryInterface usuarioRepository;
