@@ -17,7 +17,18 @@ public class Rol
 	
 	@Column
 	private String rol;
-
+	/*
+	@OneToMany(mappedBy = "rol")
+	private List<Usuario> usuarios;
+	
+	public void addUsuario(Usuario usuario) {
+		getUsuarios().add(usuario);
+	}
+	
+	public void removeUsuario(Usuario usuario) {
+		getUsuarios().remove(usuario);
+	}
+	*/
 	public Integer getId()
 	{
 		return id;
@@ -37,4 +48,15 @@ public class Rol
 	{
 		this.rol = rol;
 	}
+
+	/*
+	public List<Usuario> getUsuarios()
+	{
+		return usuarios;
+	}
+
+	public void setUsuarios(List<Usuario> usuarios)
+	{
+		this.usuarios = usuarios;
+	}*/
 }
