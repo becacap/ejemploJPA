@@ -1,8 +1,6 @@
 package cap.curso.jpa;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,9 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import cap.curso.jpa.configuracion.Configuracion;
 import cap.curso.jpa.entidades.Rol;
-import cap.curso.jpa.entidades.Usuario;
 import cap.curso.jpa.servicios.JPARolesServiceInterface;
-import cap.curso.jpa.servicios.JPAUsuarioServiceInterface;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = Configuracion.class)
@@ -42,9 +38,9 @@ public class TestRol {
     @Test
     public void findAllRol() {
 	Iterable<Rol> list = getjPARolesServiceInterface().findAll();
-	Iterator it = list.iterator();
+	Iterator<Rol> it = list.iterator();
 	while (it.hasNext()) {
-	    Rol r = (Rol) it.next();
+	    Rol r = it.next();
 	    System.out.println(r.getRol());
 	    // System.out.println(r.getUsuarios().size());
 	    // getUsuarios() -> si es LAZY, devuelve una lista null, si es EAGER, se

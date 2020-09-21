@@ -50,8 +50,8 @@ public class Configuracion
 		localContainerEntityManagerFactoryBean.setJpaVendorAdapter(hibernateJpa);
 
 		Properties jpaProperties = new Properties();
-		jpaProperties.put("show_sql", getEnvironment().getProperty("show_sql"));
-		jpaProperties.put("format_sql", getEnvironment().getProperty("format_sql"));
+		jpaProperties.put("hibernate.show_sql", getEnvironment().getProperty("show_sql"));
+		jpaProperties.put("hibernate.format_sql", getEnvironment().getProperty("format_sql"));
 		jpaProperties.put("hibernate.id.new_generator_mappings", getEnvironment().getProperty("hibernate.id.new_generator_mappings"));
 
 		localContainerEntityManagerFactoryBean.setJpaProperties(jpaProperties);
